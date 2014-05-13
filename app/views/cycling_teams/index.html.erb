@@ -1,0 +1,29 @@
+<div class="row">    
+    
+    <!-- Main Content Section -->
+       
+   <div class="large-3 columns">
+        <%= render "layouts/googlead" %>
+ </div>
+ 
+<h2>Tour de France Ploeg</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Ploeg</th>
+      <th colspan="1"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cycling_teams.each do |cycling_team| %>
+      <tr>
+        <td><h4><%= cycling_team.name %></h4></td>
+        <td><%= link_to 'Details', cycling_team %></td>
+        <td><%= link_to 'Renners', cycling_team %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>
+

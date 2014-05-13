@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+
+  resources :riders
+
+devise_for :users
+  resources :users
+
+resources :cycling_teams do 
+  		resources :riders
+  	end	
+
   get 'pages/index'
   get 'pages/yellow'
   get 'pages/green'
@@ -6,8 +16,6 @@ Rails.application.routes.draw do
   get 'pages/polka'
   get 'pages/preview'
 
-  devise_for :users
-  resources :users
   
   root 'pages#index'
 end

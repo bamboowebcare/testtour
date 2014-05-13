@@ -11,7 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513071926) do
+ActiveRecord::Schema.define(version: 20140513083111) do
+
+  create_table "cycling_teams", force: true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "logo"
+    t.boolean  "tdf"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "riders", force: true do |t|
+    t.text     "name"
+    t.date     "birthday"
+    t.string   "country"
+    t.boolean  "tdf"
+    t.boolean  "allround"
+    t.boolean  "climber"
+    t.boolean  "sprinter"
+    t.boolean  "classic"
+    t.boolean  "yellow"
+    t.boolean  "green"
+    t.boolean  "white"
+    t.boolean  "polka"
+    t.integer  "cycling_teams_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "riders", ["cycling_teams_id"], name: "index_riders_on_cycling_teams_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
