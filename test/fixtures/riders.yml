@@ -13,7 +13,7 @@ one:
   green: false
   white: false
   polka: false
-  cycling_teams_id: 
+  cycling_team_id: 
 
 two:
   name: MyText
@@ -28,4 +28,4 @@ two:
   green: false
   white: false
   polka: false
-  cycling_teams_id: 
+  cycling_team_id: 

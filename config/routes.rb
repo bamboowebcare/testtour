@@ -1,7 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :riders
-
+  resources :posts do
+    resources :comments
+   end  
+   
 devise_for :users
   resources :users
 

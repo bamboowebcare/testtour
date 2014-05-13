@@ -69,6 +69,6 @@ class RidersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rider_params
-      params.require(:rider).permit(:name, :birthday, :country, :tdf, :allround, :climber, :sprinter, :classic, :yellow, :green, :white, :polka, :cycling_teams_id)
+      params.require(:rider).permit(:name, :birthday, :country, :tdf, :allround, :climber, :sprinter, :classic, :yellow, :green, :white, :polka, :cycling_team_id)
     end
 end

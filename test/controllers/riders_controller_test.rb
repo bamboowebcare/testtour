@@ -18,7 +18,7 @@ class RidersControllerTest < ActionController::TestCase
 
   test "should create rider" do
     assert_difference('Rider.count') do
-      post :create, rider: { allround: @rider.allround, birthday: @rider.birthday, classic: @rider.classic, climber: @rider.climber, country: @rider.country, cycling_teams_id: @rider.cycling_teams_id, green: @rider.green, name: @rider.name, polka: @rider.polka, sprinter: @rider.sprinter, tdf: @rider.tdf, white: @rider.white, yellow: @rider.yellow }
+      post :create, rider: { allround: @rider.allround, birthday: @rider.birthday, classic: @rider.classic, climber: @rider.climber, country: @rider.country, cycling_team_id: @rider.cycling_team_id, green: @rider.green, name: @rider.name, polka: @rider.polka, sprinter: @rider.sprinter, tdf: @rider.tdf, white: @rider.white, yellow: @rider.yellow }
     end
 
     assert_redirected_to rider_path(assigns(:rider))
@@ -35,7 +35,7 @@ class RidersControllerTest < ActionController::TestCase
   end
 
   test "should update rider" do
-    patch :update, id: @rider, rider: { allround: @rider.allround, birthday: @rider.birthday, classic: @rider.classic, climber: @rider.climber, country: @rider.country, cycling_teams_id: @rider.cycling_teams_id, green: @rider.green, name: @rider.name, polka: @rider.polka, sprinter: @rider.sprinter, tdf: @rider.tdf, white: @rider.white, yellow: @rider.yellow }
+    patch :update, id: @rider, rider: { allround: @rider.allround, birthday: @rider.birthday, classic: @rider.classic, climber: @rider.climber, country: @rider.country, cycling_team_id: @rider.cycling_team_id, green: @rider.green, name: @rider.name, polka: @rider.polka, sprinter: @rider.sprinter, tdf: @rider.tdf, white: @rider.white, yellow: @rider.yellow }
     assert_redirected_to rider_path(assigns(:rider))
   end
 
