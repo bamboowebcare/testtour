@@ -1,28 +1,32 @@
+  <div class="row">
+     <div class="large-3 columns">
+        <%= render "layouts/googlead" %>
+ </div> 
+<!-- Main Content Section -->
+<!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+<div class="large-9 columns">
+
 <p id="notice"><%= notice %></p>
 
+<p><strong>Titel: <%= @post.title %></strong></p>
 <p>
-  <strong>Title:</strong>
-  <%= @post.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
   <%= @post.body %>
 </p>
 
 <%= link_to 'Edit', edit_post_path(@post) %> |
 <%= link_to 'Back', posts_path %>
-
-
-<h2>Comments</h2>
+<hr>
+<div>
+<p><strong>Opmerkingen</strong></p>
 <%= render @post.comments %>
 
- <%= form_for [@post, Comment.new] do |f| %>
+<%= form_for [@post, Comment.new] do |f| %>
         <p>
-                <%= f.label :body, "New comment" %><br/>
+                <%= f.label :body, "Nieuwe Opmerking" %><br/>
                 <%= f.text_area :body %>
         </p>
-        <p><%= f.submit "Add comment" %></p>
+        <p><%= f.submit "Voeg toe" %></p>
 <% end %>
 
-
+</div>
+</div>
