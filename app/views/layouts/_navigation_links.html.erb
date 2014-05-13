@@ -1,4 +1,13 @@
 <%# add navigation links to this file %>
+<li><a href="../pages/preview">Voorbeschouwing</a></li>
+<li class="has-dropdown"><a href="../pages/yellow">De Favorieten</a>
+     <ul class="dropdown">
+         <li><a href="../pages/yellow">Geel</a></li>
+          <li><a href="../pages/green">Groen</a></li>
+          <li><a href="../pages/white">Wit</a></li>
+          <li><a href="../pages/polka">Bollen</a></li>
+     </ul>
+</li>
 <% if user_signed_in? %>
   <li><%= link_to 'Edit account', edit_user_registration_path %></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
