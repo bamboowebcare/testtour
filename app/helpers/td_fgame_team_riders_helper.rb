@@ -1,0 +1,2 @@
+module TdFgameTeamRidersHelper
+end

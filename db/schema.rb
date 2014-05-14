@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140513095752) do
+ActiveRecord::Schema.define(version: 20140514150441) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -59,6 +59,25 @@ ActiveRecord::Schema.define(version: 20140513095752) do
   end
 
   add_index "riders", ["cycling_team_id"], name: "index_riders_on_cycling_team_id"
+
+  create_table "td_fgame_team_riders", force: true do |t|
+    t.integer  "tdfgameteam_id"
+    t.integer  "rider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "td_fgame_team_riders", ["rider_id"], name: "index_td_fgame_team_riders_on_rider_id"
+  add_index "td_fgame_team_riders", ["tdfgameteam_id"], name: "index_td_fgame_team_riders_on_tdfgameteam_id"
+
+  create_table "td_fgame_teams", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "td_fgame_teams", ["user_id"], name: "index_td_fgame_teams_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

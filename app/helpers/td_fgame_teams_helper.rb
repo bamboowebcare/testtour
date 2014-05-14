@@ -1,0 +1,2 @@
+module TdFgameTeamsHelper
+end

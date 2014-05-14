@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :td_fgame_team_riders
+
+  resources :td_fgame_teams
+
   resources :posts do
     resources :comments
    end  

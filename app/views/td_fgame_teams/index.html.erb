@@ -1,0 +1,27 @@
+<h1>Listing td_fgame_teams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @td_fgame_teams.each do |td_fgame_team| %>
+      <tr>
+        <td><%= td_fgame_team.user %></td>
+        <td><%= td_fgame_team.name %></td>
+        <td><%= link_to 'Show', td_fgame_team %></td>
+        <td><%= link_to 'Edit', edit_td_fgame_team_path(td_fgame_team) %></td>
+        <td><%= link_to 'Destroy', td_fgame_team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Td fgame team', new_td_fgame_team_path %>
