@@ -18,8 +18,6 @@ resources :cycling_teams do
   get 'pages/green'
   get 'pages/white'
   get 'pages/polka'
-  get 'pages/preview'
-
   
   root 'pages#index'
 end

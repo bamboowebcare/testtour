@@ -14,7 +14,6 @@ class CreateRiders < ActiveRecord::Migration
       t.boolean :white
       t.boolean :polka
       t.references :cycling_team, index: true
-      t.references :user, index: true
 
       t.timestamps
     end

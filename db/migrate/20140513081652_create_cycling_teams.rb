@@ -5,7 +5,6 @@ class CreateCyclingTeams < ActiveRecord::Migration
       t.text :description
       t.text :logo
       t.boolean :tdf
-      t.references :user, index: true
 
       t.timestamps
     end
