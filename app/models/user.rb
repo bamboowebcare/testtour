@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     self.role ||= :user
   end
   
+  has_many :posts
   has_many :comments
 
 end
