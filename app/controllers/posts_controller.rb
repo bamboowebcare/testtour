@@ -1,18 +1,16 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_filter :authenticate_user!
+  after_action :verify_authorized, except: [:show]
+  
   # GET /posts
   # GET /posts.json
   def index
     @posts = Post.all
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
   def show
   end
 
-  # GET /posts/new
   def new
     @post = Post.new
   end
@@ -21,8 +19,6 @@ class PostsController < ApplicationController
   def edit
   end
 
-  # POST /posts
-  # POST /posts.json
   def create
     @post = Post.new(post_params)
 
@@ -37,10 +33,18 @@ class PostsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /posts/1
-  # PATCH/PUT /posts/1.json
   def update
+<<<<<<< HEAD
       respond_to do |format|
+      	if @post.update(post_params)
+        	format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        	format.json { render :show, status: :ok, location: @post }
+        else
+        	format.html { render :edit }
+        	format.json { render json: @post.errors, status: :unprocessable_entity }
+        end
+=======
+    respond_to do |format|
       if @post.update(post_params)
         format.html { redirect_to @post, notice: 'Post was successfully updated.' }
         format.json { render :show, status: :ok, location: @post }
@@ -49,16 +53,10 @@ class PostsController < ApplicationController
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
+>>>>>>> parent of 8ab8fc6... 0.1.6
   end
 
-  # DELETE /posts/1
-  # DELETE /posts/1.json
   def destroy
-    @post.destroy
-    respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
-      format.json { head :no_content }
-    end
   end
 
   private
