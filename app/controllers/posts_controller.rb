@@ -34,6 +34,7 @@ class PostsController < ApplicationController
   end
 
   def update
+<<<<<<< HEAD
       respond_to do |format|
       	if @post.update(post_params)
         	format.html { redirect_to @post, notice: 'Post was successfully updated.' }
@@ -42,6 +43,17 @@ class PostsController < ApplicationController
         	format.html { render :edit }
         	format.json { render json: @post.errors, status: :unprocessable_entity }
         end
+=======
+    respond_to do |format|
+      if @post.update(post_params)
+        format.html { redirect_to @post, notice: 'Post was successfully updated.' }
+        format.json { render :show, status: :ok, location: @post }
+      else
+        format.html { render :edit }
+        format.json { render json: @post.errors, status: :unprocessable_entity }
+      end
+    end
+>>>>>>> parent of 8ab8fc6... 0.1.6
   end
 
   def destroy
