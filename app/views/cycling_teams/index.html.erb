@@ -6,7 +6,7 @@
         <%= render "layouts/googlead" %>
  </div>
  
-<h2>Tour de France Ploeg</h2>
+<h2>Tour de France Ploegen</h2>
 <table>
   <thead>
     <tr>
@@ -19,9 +19,14 @@
     <% @cycling_teams.each do |cycling_team| %>
       <tr>
         <td><h4><%= cycling_team.name %></h4></td>
-        <td><%= link_to 'Details', cycling_team %></td>
-        <td><%= link_to 'Renners', cycling_team %></td>
-      </tr>
+        <td><%= link_to 'Renners >>', cycling_team %></td>
+	  
+	  <% if current_user.try(:admin?) %>	
+		<td><%= link_to 'Edit', edit_cycling_team_path(cycling_team) %></td>
+        <td><%= link_to 'Destroy', cycling_team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	  <% end %>	
+      
+	  </tr>
     <% end %>
   </tbody>
 </table>
