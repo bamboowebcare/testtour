@@ -18,7 +18,7 @@
   <tbody>
     <% @cycling_teams.each do |cycling_team| %>
       <tr>
-        <td><h4><%= cycling_team.name %></h4></td>
+        <td><%= cycling_team.name %></td>
         <td><%= link_to 'Renners >>', cycling_team %></td>
 	  
 	  <% if current_user.try(:admin?) %>	

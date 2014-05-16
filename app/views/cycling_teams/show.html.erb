@@ -14,8 +14,24 @@
 
 <%= render :partial => @cycling_team %>
 
-<h3>Renners</h3>
-	  <%= render @cycling_team.riders %>
+<p><strong>Renners</strong></p>
+<table>
+  <thead>
+    <tr>
+      <th>Naam</th>
+      <th>Geboorte datum</th>
+      <th>Nationaliteit</th>
+    </tr>
+  </thead>
+  <tbody>
+ 	  <%= render @cycling_team.riders %>
+  </tbody>
+</table>
+
+<% if current_user.try(:admin?) %>
+	<%= link_to 'New Rider', new_rider_path %>
+<% end %>  
+
 
 </div>
 
