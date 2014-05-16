@@ -3,7 +3,6 @@ class CreateRiders < ActiveRecord::Migration
     create_table :riders do |t|
       t.text :name
       t.date :birthday
-      t.string :country
       t.boolean :tdf
       t.boolean :allround
       t.boolean :climber
@@ -14,6 +13,7 @@ class CreateRiders < ActiveRecord::Migration
       t.boolean :white
       t.boolean :polka
       t.references :cycling_team, index: true
+      t.references :country, index: true
 
       t.timestamps
     end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140516130128) do
+ActiveRecord::Schema.define(version: 20140516144516) do
 
   create_table "comments", force: true do |t|
     t.text     "body"
@@ -23,6 +23,12 @@ ActiveRecord::Schema.define(version: 20140516130128) do
 
   add_index "comments", ["post_id"], name: "index_comments_on_post_id"
   add_index "comments", ["user_id"], name: "index_comments_on_user_id"
+
+  create_table "countries", force: true do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "cycling_teams", force: true do |t|
     t.string   "name"
@@ -43,7 +49,6 @@ ActiveRecord::Schema.define(version: 20140516130128) do
   create_table "riders", force: true do |t|
     t.text     "name"
     t.date     "birthday"
-    t.string   "country"
     t.boolean  "tdf"
     t.boolean  "allround"
     t.boolean  "climber"
@@ -54,10 +59,12 @@ ActiveRecord::Schema.define(version: 20140516130128) do
     t.boolean  "white"
     t.boolean  "polka"
     t.integer  "cycling_team_id"
+    t.integer  "country_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
+  add_index "riders", ["country_id"], name: "index_riders_on_country_id"
   add_index "riders", ["cycling_team_id"], name: "index_riders_on_cycling_team_id"
 
   create_table "users", force: true do |t|

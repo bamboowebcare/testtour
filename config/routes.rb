@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :countries
+
   resources :riders
 
   resources :td_fgame_team_riders
