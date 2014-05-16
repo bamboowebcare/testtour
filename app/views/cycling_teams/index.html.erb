@@ -30,5 +30,12 @@
     <% end %>
   </tbody>
 </table>
+
+
+<br>
+<% if current_user.try(:admin?) %>
+	<%= link_to 'New Team', new_cycling_team_path %>
+<% end %>  
+
 </div>
 

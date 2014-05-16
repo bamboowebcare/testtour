@@ -1,0 +1,10 @@
+<td><%= rider.name %></td>
+<td><%= rider.birthday %></td>
+<td><%= rider.country %></td>
+
+<% if current_user.try(:admin?) %>	
+	<td><%= rider.tdf %></td>
+	<td><%= rider.country %></td>
+	<td><%= link_to 'Edit', edit_rider_path(@rider) %></td>
+    <td><%= link_to 'Destroy', rider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<% end %>

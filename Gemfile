@@ -12,7 +12,7 @@ gem 'foundation-rails'
 gem 'pundit'
 gem 'simple_form'
 gem 'pg'
-gem 'kgio'
+
 
 group :development do
   gem 'sqlite3'
