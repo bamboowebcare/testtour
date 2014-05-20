@@ -26,7 +26,7 @@
       <tr>
         <td><%= rider.name %></td>
         <td><%= rider.birthday %></td>
-        <td><%= rider.country %></td>
+        <td><%= rider.country.name %></td>
         <td><%= rider.tdf %></td>
         <td><%= rider.allround %></td>
         <td><%= rider.climber %></td>
@@ -36,7 +36,7 @@
         <td><%= rider.green %></td>
         <td><%= rider.white %></td>
         <td><%= rider.polka %></td>
-        <td><%= rider.cycling_team %></td>
+        <td><%= rider.cycling_team.name %></td>
         <td><%= link_to 'Show', rider %></td>
         <td><%= link_to 'Edit', edit_rider_path(rider) %></td>
         <td><%= link_to 'Destroy', rider, method: :delete, data: { confirm: 'Are you sure?' } %></td>

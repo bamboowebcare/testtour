@@ -5,7 +5,7 @@ class RidersController < ApplicationController
   # GET /riders.json
   def index
     @riders = Rider.all
-  end
+   end
 
   # GET /riders/1
   # GET /riders/1.json
@@ -67,9 +67,8 @@ class RidersController < ApplicationController
       @rider = Rider.find(params[:id])
     end
 
-
     # Never trust parameters from the scary internet, only allow the white list through.
     def rider_params
-      params.require(:rider).permit(:name, :birthday, :tdf, :allround, :climber, :sprinter, :classic, :yellow, :green, :white, :polka, :cycling_team__attributes => [:id, :name], :country_attributes => [:id, :name])
+      params.require(:rider).permit(:name, :birthday, :tdf, :allround, :climber, :sprinter, :classic, :yellow, :green, :white, :polka, :cycling_team_id, :name, :country_id)
     end
 end
