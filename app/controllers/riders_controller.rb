@@ -28,7 +28,7 @@ class RidersController < ApplicationController
 
     respond_to do |format|
       if @rider.save
-        format.html { redirect_to @rider, notice: 'Rider was successfully created.' }
+        format.html { redirect_to riders_path, notice: 'Rider was successfully created.' }
         format.json { render :show, status: :created, location: @rider }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class RidersController < ApplicationController
   def update
     respond_to do |format|
       if @rider.update(rider_params)
-        format.html { redirect_to @rider, notice: 'Rider was successfully updated.' }
+        format.html { redirect_to riders_path, notice: 'Rider was successfully updated.' }
         format.json { render :show, status: :ok, location: @rider }
       else
         format.html { render :edit }
@@ -67,8 +67,9 @@ class RidersController < ApplicationController
       @rider = Rider.find(params[:id])
     end
 
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def rider_params
-      params.require(:rider).permit(:name, :birthday, :country, :tdf, :allround, :climber, :sprinter, :classic, :yellow, :green, :white, :polka, :cycling_team_id)
+      params.require(:rider).permit(:name, :birthday, :tdf, :allround, :climber, :sprinter, :classic, :yellow, :green, :white, :polka, :cycling_team__attributes => [:id, :name], :country_attributes => [:id, :name])
     end
 end
