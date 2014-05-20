@@ -1,0 +1,2 @@
+module TourTeamsHelper
+end

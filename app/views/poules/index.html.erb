@@ -1,0 +1,31 @@
+<h1>Listing poules</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Encrypted password</th>
+      <th>Reset password token</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @poules.each do |poule| %>
+      <tr>
+        <td><%= poule.name %></td>
+        <td><%= poule.encrypted_password %></td>
+        <td><%= poule.reset_password_token %></td>
+        <td><%= poule.user %></td>
+        <td><%= link_to 'Show', poule %></td>
+        <td><%= link_to 'Edit', edit_poule_path(poule) %></td>
+        <td><%= link_to 'Destroy', poule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Poule', new_poule_path %>

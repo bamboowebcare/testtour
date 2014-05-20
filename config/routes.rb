@@ -1,11 +1,8 @@
 Rails.application.routes.draw do
 
   resources :countries
-
   resources :riders
 
-  resources :td_fgame_team_riders
-  resources :td_fgame_teams  		
   resources :posts do
     resources :comments
    end  
@@ -13,11 +10,16 @@ Rails.application.routes.draw do
   resources :comments
    
 devise_for :users
-  resources :users
+  resources :users do
+    resources :poules 
+  	resources :tour_teams do
+	  	resources :tour_teams_riders
+	 end 
+  end
 
-resources :cycling_teams do 
-  		resources :riders
-  	end	
+  resources :cycling_teams do 
+  	resources :riders
+  end	
 
   get 'pages/index'
   get 'pages/yellow'

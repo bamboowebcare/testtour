@@ -1,0 +1,27 @@
+<h1>Listing tour_teams_riders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tour team</th>
+      <th>Rider</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tour_teams_riders.each do |tour_teams_rider| %>
+      <tr>
+        <td><%= tour_teams_rider.tour_team %></td>
+        <td><%= tour_teams_rider.rider %></td>
+        <td><%= link_to 'Show', tour_teams_rider %></td>
+        <td><%= link_to 'Edit', edit_tour_teams_rider_path(tour_teams_rider) %></td>
+        <td><%= link_to 'Destroy', tour_teams_rider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tour teams rider', new_tour_teams_rider_path %>

@@ -11,6 +11,6 @@ class User < ActiveRecord::Base
   end
   
   has_many :comments
-  has_many :TdFgameTeams
+  has_many :tour_teams
 
 end

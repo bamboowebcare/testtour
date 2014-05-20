@@ -1,0 +1,14 @@
+<%= simple_form_for(@poule) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :encrypted_password %>
+    <%= f.input :reset_password_token %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

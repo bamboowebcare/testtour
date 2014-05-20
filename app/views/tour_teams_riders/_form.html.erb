@@ -1,0 +1,12 @@
+<%= simple_form_for(@tour_teams_rider) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.association :tour_team %>
+    <%= f.association :rider %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
