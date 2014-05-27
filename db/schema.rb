@@ -55,17 +55,6 @@ ActiveRecord::Schema.define(version: 20140523090259) do
 
   add_index "posts", ["category_id"], name: "index_posts_on_category_id"
 
-  create_table "poules", force: true do |t|
-    t.string   "name"
-    t.string   "encrypted_password"
-    t.string   "reset_password_token"
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "poules", ["user_id"], name: "index_poules_on_user_id"
-
   create_table "riders", force: true do |t|
     t.text     "name"
     t.date     "birthday"
@@ -86,27 +75,6 @@ ActiveRecord::Schema.define(version: 20140523090259) do
 
   add_index "riders", ["country_id"], name: "index_riders_on_country_id"
   add_index "riders", ["cycling_team_id"], name: "index_riders_on_cycling_team_id"
-
-  create_table "tour_teams", force: true do |t|
-    t.string   "name"
-    t.integer  "user_id"
-    t.integer  "poule_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tour_teams", ["poule_id"], name: "index_tour_teams_on_poule_id"
-  add_index "tour_teams", ["user_id"], name: "index_tour_teams_on_user_id"
-
-  create_table "tour_teams_riders", force: true do |t|
-    t.integer  "tour_team_id"
-    t.integer  "rider_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "tour_teams_riders", ["rider_id"], name: "index_tour_teams_riders_on_rider_id"
-  add_index "tour_teams_riders", ["tour_team_id"], name: "index_tour_teams_riders_on_tour_team_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

@@ -4,27 +4,8 @@ Rails.application.routes.draw do
   resources :users do
 end
  
-  
-  resources :riders
-  resources :poules 
-  resources :tour_teams_riders
-  resources :comments
-
-  
   resources :countries do
    resources :riders
-  end
-
-  resources :users do
-  	  resources :tour_teams
-  end
-
-  resources :tour_teams do
-	 resources :tour_teams_riders 	  
-  end
-
-  resources :tour_teams_riders do
-	 	  resources :riders
   end
 
   resources :categories do
