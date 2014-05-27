@@ -13,4 +13,26 @@
 <p>
   <%= sanitize @post.body %>
 </p>
+<% if current_user.try(:admin?) %>
+ <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %> 
+<%= link_to '<< terug naar het overzicht van alle Blogs', posts_path %>
+<hr>
+
+
+  
+<%= render @post.comments %>
+
+<% if user_signed_in? %>
+
+<%= form_for [@post, Comment.new] do |f| %>
+        <p>
+                <%= f.label :body, "Nieuwe opmerking" %><br/>
+                <%= f.text_area :body %>
+        </p>
+        <p><%= current_user.name %></p>       	
+        <p><%= f.submit "Voeg toe" %></p>
+<% end %>
+<% end %>
+
 </div>
