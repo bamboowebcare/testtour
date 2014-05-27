@@ -1,10 +1,12 @@
 class TourTeamsController < ApplicationController
-  before_action :set_tour_team, only: [:show, :edit, :update, :destroy]
+   before_action :set_tour_team, only: [:show, :edit, :update, :destroy]
 
-  # GET /tour_teams
+
+
+ # GET /tour_teams
   # GET /tour_teams.json
   def index
-    @tour_teams = TourTeam.all
+	@tour_team = TourTeam.all
   end
 
   # GET /tour_teams/1
@@ -14,7 +16,6 @@ class TourTeamsController < ApplicationController
 
   # GET /tour_teams/new
   def new
-    @tour_team = TourTeam.new
   end
 
   # GET /tour_teams/1/edit
@@ -67,7 +68,11 @@ class TourTeamsController < ApplicationController
       @tour_team = TourTeam.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    def set_user
+      @user = current_user
+    end
+
+   # Never trust parameters from the scary internet, only allow the white list through.
     def tour_team_params
       params.require(:tour_team).permit(:name, :user_id, :poule_id)
     end

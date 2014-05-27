@@ -1,6 +1,6 @@
 class TourTeamsRidersController < ApplicationController
-  before_action :set_tour_teams_rider, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
+  
   # GET /tour_teams_riders
   # GET /tour_teams_riders.json
   def index
@@ -10,6 +10,8 @@ class TourTeamsRidersController < ApplicationController
   # GET /tour_teams_riders/1
   # GET /tour_teams_riders/1.json
   def show
+   @tour_teams = Tour_Teams.find(params[:post_id])
+   @tour_teams_riders = @tour_teams.tour_teams_riders.find(comment_params)
   end
 
   # GET /tour_teams_riders/new

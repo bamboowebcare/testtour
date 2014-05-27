@@ -5,7 +5,6 @@ Rails.application.routes.draw do
 end
  
   
-  resources :users
   resources :riders
   resources :poules 
   resources :tour_teams_riders
@@ -14,6 +13,10 @@ end
   
   resources :countries do
    resources :riders
+  end
+
+  resources :users do
+  	  resources :tour_teams
   end
 
   resources :tour_teams do

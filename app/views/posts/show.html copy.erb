@@ -1,0 +1,37 @@
+  <div class="row">
+     <div class="large-3 columns">
+        <%= render "layouts/googlead" %>
+ </div> 
+<!-- Main Content Section -->
+<!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+<div class="large-9 columns">
+
+<p id="notice"><%= notice %></p>
+
+<p><strong>Titel: <%= @post.title %></strong></p>
+<p>Categorie: <%= @post.category.name %></p>
+<p>
+  <%= sanitize @post.body %>
+</p>
+<% if current_user.try(:admin?) %>
+ <%= link_to 'Edit', edit_post_path(@post) %> |
+<% end %> 
+<%= link_to '<< terug naar het overzicht van alle Blogs', posts_path %>
+<hr>
+
+<% if user_signed_in? %>
+  
+<%= render @post.comments %>
+
+<%= form_for [@post, Comment.new] do |f| %>
+        <p>
+                <%= f.label :body, "Nieuwe opmerking" %><br/>
+                <%= f.text_area :body %>
+        </p>
+        <p><%= current_user.name %></p>       	
+        <p><%= current_user.id %></p>
+        <p><%= f.submit "Voeg toe" %></p>
+<% end %>
+<% end %>
+
+</div>

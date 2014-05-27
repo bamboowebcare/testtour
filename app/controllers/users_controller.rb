@@ -5,12 +5,14 @@ class UsersController < ApplicationController
   def index
     @users = User.all
     authorize @users
+    @tour_team = Tour_Team.find
   end
 
   def show
     @user = User.find(params[:id])
     @post = Post.new
     @comment = Comment.new
+    @tour_team = Tour_Team.new
         
     unless current_user.admin?
       unless @user == current_user
