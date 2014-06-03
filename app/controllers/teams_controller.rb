@@ -4,12 +4,16 @@ class TeamsController < ApplicationController
   # GET /teams
   # GET /teams.json
   def index
+   #@user = current_user.id
     @teams = Team.all
-  end
+    
+    
+   end
 
   # GET /teams/1
   # GET /teams/1.json
   def show
+  	@team = Teams.find(params[:id])
   end
 
   # GET /teams/new
@@ -25,6 +29,7 @@ class TeamsController < ApplicationController
   # POST /teams.json
   def create
     @team = Team.new(team_params)
+    @team.user_id = current_user.id
 
     respond_to do |format|
       if @team.save

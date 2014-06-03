@@ -1,4 +1,12 @@
-<h1>Listing teams</h1>
+<div class="row">
+     <div class="large-3 columns">
+        <%= render "layouts/googlead" %>
+ </div> 
+<!-- Main Content Section -->
+<!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+<div class="large-9 columns">
+
+<h1>Jouw Teams</h1>
 
 <table>
   <thead>
@@ -14,8 +22,8 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.name %></td>
-        <td><%= team.user %></td>
-        <td><%= team.poule %></td>
+        <td><%= team.user.name %></td>
+        <td><%= team.poule.name %></td>
         <td><%= link_to 'Show', team %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>
         <td><%= link_to 'Destroy', team, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -27,3 +35,4 @@
 <br>
 
 <%= link_to 'New Team', new_team_path %>
+</div>

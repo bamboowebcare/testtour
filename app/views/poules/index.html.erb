@@ -1,3 +1,11 @@
+<div class="row">
+     <div class="large-3 columns">
+        <%= render "layouts/googlead" %>
+ </div> 
+<!-- Main Content Section -->
+<!-- This has been source ordered to come first in the markup (and on small devices) but to be to the right of the nav on larger screens -->
+<div class="large-9 columns">
+
 <h1>Listing poules</h1>
 
 <table>
@@ -6,7 +14,7 @@
       <th>Name</th>
       <th>Encrypted password</th>
       <th>Reset password token</th>
-      <th>User</th>
+      <th>Beheerder</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -17,7 +25,7 @@
         <td><%= poule.name %></td>
         <td><%= poule.encrypted_password %></td>
         <td><%= poule.reset_password_token %></td>
-        <td><%= poule.user %></td>
+        <td><%= poule.user.name %></td>
         <td><%= link_to 'Show', poule %></td>
         <td><%= link_to 'Edit', edit_poule_path(poule) %></td>
         <td><%= link_to 'Destroy', poule, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -29,3 +37,4 @@
 <br>
 
 <%= link_to 'New Poule', new_poule_path %>
+</div>
