@@ -2,7 +2,6 @@
 <p>Name: <%= @user.name if @user.name %></p>
 <p>Email: <%= @user.email if @user.email %></p>
 
-
 <h1>Listing teams</h1>
 
 <table>
@@ -16,7 +15,7 @@
   </thead>
 
   <tbody>
-    <% @user.teams.each do |team| %>
+    <% @user.team.each do |team| %>
       <tr>
         <td><%= team.name %></td>
         <td><%= team.user.name %></td>
