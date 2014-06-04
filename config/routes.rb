@@ -4,21 +4,22 @@ Rails.application.routes.draw do
   resources :users do
 end
   
- resources :users do
+
+  resources :teams
+  resources :comments
+  resources :poules
+  
+  resources :users do
   	resources :teams
   end
 
-  resources :teams
+  resources :users do
+  	resources :comments
+  end
 
-
-  resources :poules
-  
   resources :poules do
   	resources :teams
   end
-
-
-  resources :comments
 
   resources :countries do
    resources :riders
@@ -31,10 +32,6 @@ end
   resources :posts do
     resources :comments
    end  
-  
-  resources :users do
-  	resources :comments
-  end
  
   resources :cycling_teams do 
   	resources :riders
