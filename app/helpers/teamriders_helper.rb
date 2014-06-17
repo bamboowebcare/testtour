@@ -1,0 +1,2 @@
+module TeamridersHelper
+end

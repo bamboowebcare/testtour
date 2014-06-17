@@ -1,9 +1,9 @@
-<%= simple_form_for(@team) do |f| %>
+<%= simple_form_for(@teamrider) do |f| %>
   <%= f.error_notification %>
 
   <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.association :poule %>
+    <%= f.association :team %>
+    <%= f.association :rider %>
   </div>
 
   <div class="form-actions">

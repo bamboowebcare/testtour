@@ -11,6 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @post = Post.new
     @comment = Comment.new
+    @teams = Team.new
         
     unless current_user.admin?
       unless @user == current_user

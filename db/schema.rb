@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140604090532) do
+ActiveRecord::Schema.define(version: 20140616131438) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
@@ -86,6 +86,16 @@ ActiveRecord::Schema.define(version: 20140604090532) do
 
   add_index "riders", ["country_id"], name: "index_riders_on_country_id"
   add_index "riders", ["cycling_team_id"], name: "index_riders_on_cycling_team_id"
+
+  create_table "teamriders", force: true do |t|
+    t.integer  "team_id"
+    t.integer  "rider_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "teamriders", ["rider_id"], name: "index_teamriders_on_rider_id"
+  add_index "teamriders", ["team_id"], name: "index_teamriders_on_team_id"
 
   create_table "teams", force: true do |t|
     t.string   "name"

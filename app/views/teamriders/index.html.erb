@@ -1,0 +1,27 @@
+<h1>Listing teamriders</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Team</th>
+      <th>Rider</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teamriders.each do |teamrider| %>
+      <tr>
+        <td><%= teamrider.team %></td>
+        <td><%= teamrider.rider %></td>
+        <td><%= link_to 'Show', teamrider %></td>
+        <td><%= link_to 'Edit', edit_teamrider_path(teamrider) %></td>
+        <td><%= link_to 'Destroy', teamrider, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Teamrider', new_teamrider_path %>

@@ -14,7 +14,7 @@
     <% @teams.each do |team| %>
       <tr>
         <td><%= team.name %></td>
-        <td><%= team.user.name %></td>
+        <td><%= team.user %></td>
         <td><%= team.poule %></td>
         <td><%= link_to 'Show', team %></td>
         <td><%= link_to 'Edit', edit_team_path(team) %></td>

@@ -1,15 +1,18 @@
 class TeamsController < ApplicationController
+  before_filter :authenticate_user!
   before_action :set_team, only: [:show, :edit, :update, :destroy]
+
 
   # GET /teams
   # GET /teams.json
   def index
-    @teams = Team.all
+     @teams = Team.all
   end
 
   # GET /teams/1
   # GET /teams/1.json
   def show
+  	@teams = Team.all
   end
 
   # GET /teams/new
@@ -24,11 +27,12 @@ class TeamsController < ApplicationController
   # POST /teams
   # POST /teams.json
   def create
-    @team = Team.new(team_params)
-
+  @team = Team.new(team_params)
+  @team.user_id = current_user.id
+ 
     respond_to do |format|
       if @team.save
-        format.html { redirect_to @team, notice: 'Team was successfully created.' }
+        format.html { redirect_to user_path(current_user), notice: 'Team was successfully created.' }
         format.json { render :show, status: :created, location: @team }
       else
         format.html { render :new }
@@ -42,7 +46,7 @@ class TeamsController < ApplicationController
   def update
     respond_to do |format|
       if @team.update(team_params)
-        format.html { redirect_to @team, notice: 'Team was successfully updated.' }
+        format.html { redirect_to user_path(current_user), notice: 'Team was successfully updated.' }
         format.json { render :show, status: :ok, location: @team }
       else
         format.html { render :edit }
@@ -56,7 +60,7 @@ class TeamsController < ApplicationController
   def destroy
     @team.destroy
     respond_to do |format|
-      format.html { redirect_to teams_url, notice: 'Team was successfully destroyed.' }
+      format.html { redirect_to user_path(current_user), notice: 'Team was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

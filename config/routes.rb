@@ -1,21 +1,27 @@
 Rails.application.routes.draw do
   
+  resources :teamriders
+    
   devise_for :users
    resources :users do
   end
   
-  resources :teams
+ resources :teams do 
+  	resources :teamriders
+  end	
+  
   resources :poules
   resources :comments
 
+  resources :cycling_teams do 
+  	resources :riders
+  end	
 
  resources :users do
   	resources :teams
   end
 
-
-
-  resources :countries do
+ resources :countries do
    resources :riders
   end
 
